@@ -273,7 +273,7 @@ CreateBucketOutcome S3Client::CreateBucket(const CreateBucketRequest& request) c
 {
   Aws::StringStream ss;
   Aws::Http::URI uri = ComputeEndpointString();
-  ss << "/";
+  //ss << "/";
   ss << request.GetBucket();
   uri.SetPath(uri.GetPath() + ss.str());
   XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT);

@@ -43,8 +43,6 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-	Aws::String SerializePayloadLoction(Aws::String placement);
-
     Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
 
