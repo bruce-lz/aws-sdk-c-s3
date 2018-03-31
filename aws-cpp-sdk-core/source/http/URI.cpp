@@ -164,7 +164,7 @@ Aws::String URI::URLEncode(const Aws::String &path)
   Aws::StringStream ss;
   const Aws::String hexAlphabet = "0123456789ABCDEF";
   for (unsigned i = 0; i < path.length(); ++i) {
-    char c = s[i];
+    char c = path[i];
     if (c == '/' // Note- special case for fuse paths...
       || c == '.'
       || c == '-'
