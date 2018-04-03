@@ -401,7 +401,7 @@ extern "C" int Create_Object(S3_Client s3_cli, const char* bucket_name,
   
   Aws::S3::Model::PutObjectRequest object_request;
   object_request.WithBucket(bucket_name)
-                .WithKey(Aws::Utils::StringUtils::URLEncode(object_name));
+                .WithKey(object_name);
 	
   auto create_outcome =s3_client->PutObject(object_request);
   if (!create_outcome.IsSuccess())
