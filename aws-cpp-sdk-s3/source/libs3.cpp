@@ -608,7 +608,7 @@ extern "C" int Get_Object_Info(S3_Client s3_cli, const char * bucket_name,
 extern "C" int List_Object(S3_Client s3_cli, const char *bucket_name,
                   object_info_t *obj_info, size_t *info_len,
                   const char *perfix, const char *delimiter,
-                  char **marker, int get_meta, bool* istruncated)
+                  char **marker, int get_meta, int* istruncated)
 {
   Aws::S3::S3Client *s3_client = (Aws::S3::S3Client *)s3_cli;
   Aws::S3::Model::ListObjectsRequest list_req;
@@ -632,7 +632,7 @@ extern "C" int List_Object(S3_Client s3_cli, const char *bucket_name,
   {
     const Aws::String& next_marker = list_outcome.GetResult().GetNextMarker();
     do_out_buffer(next_marker.c_str(), marker, next_marker.length());
-    *istruncated = true;
+    *istruncated = 1;
   }
     
   int it = 0;

@@ -180,7 +180,7 @@ int Get_Object_Info(S3_Client s3_cli, const char * bucket_name,
 int List_Object(S3_Client s3_cli, const char *bucket_name,
                 object_info_t *obj_info, size_t *info_len,
                 const char *perfix, const char *delimiter,
-                char **marker, int get_meta, bool* istruncated);
+                char **marker, int get_meta, int* istruncated);
 
 int Init_Multipart_Upload(S3_Client s3_cli, const char *bucket_name,
                           const char *object_name, char **upload_id,
